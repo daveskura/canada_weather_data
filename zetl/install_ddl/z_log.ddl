@@ -10,7 +10,7 @@ CREATE TABLE z_log (
 	starttime TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
 	endtime TIMESTAMP, 
 	sql_to_run varchar(15000) DEFAULT NULL, 
-	sql_error varchar(255) DEFAULT NULL, 
+	sql_error varchar(15000) DEFAULT NULL, 
 	sqlfile varchar(250) DEFAULT NULL, 
 	dtm TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 );
