@@ -4,11 +4,14 @@
 	url = 'https://climate.weather.gc.ca/climate_data/bulk_data_e.html?format=csv&stationID=10700&Year=2007&Month=11&Day=1&time=&timeframe=2&submit=Download+Data'
 
 """
-NOTINPROVINCE = "('BC','ON','SK')"
+NOTINPROVINCE = "('ON')"
 
-from postgresdatabase import db
+
 import psycopg2 
 import requests
+import sys
+sys.path.append("..\..") # Adds higher directory to python modules path.
+from postgresdatabase import db
 headers = {
     "content-type": "text/html"
 }
@@ -22,9 +25,10 @@ url_base = "https://climate.weather.gc.ca/climate_data/bulk_data_e.html" + "?"
 url_base += "format=csv" + "&"
 
 
-stations = mydb.query("SELECT station_id FROM weather.weather_station WHERE province NOT IN " + NOTINPROVINCE + " ORDER BY station_id")
+stations = mydb.query("SELECT station_id,province FROM weather.weather_station WHERE province NOT IN " + NOTINPROVINCE + " ORDER BY station_id")
 for data in stations:
 	stationID = str(data[0])
+	province = str(data[1])
 	years = mydb.query('SELECT year FROM weather.station_years WHERE station_id::int = ' + stationID + ' ORDER BY year')
 	months = mydb.query('SELECT month FROM weather.station_months WHERE station_id::int = ' + stationID + ' ORDER BY month')
 	for yr_data in years:
@@ -43,7 +47,7 @@ for data in stations:
 
 		url = url_base + url_querystring
 		response = requests.post(url, headers=headers)
-		filename = '../../../data/' + stationID + '_' + year + '_' + month + '.csv'
+		filename = '../../../data/' + stationID + '_' + province + '_' + year + '_' + month + '.csv'
 		with open(filename, "w+", encoding="utf-8") as f:
 			f.write(response.text)
 			f.close()

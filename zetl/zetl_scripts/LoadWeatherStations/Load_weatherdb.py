@@ -3,8 +3,11 @@
   
   File Description:
 """
-from postgresdatabase import db
 import psycopg2 
+import sys
+sys.path.append("..\..") # Adds higher directory to python modules path.
+
+from postgresdatabase import db
 
 mydb = db()
 mydb.connect()

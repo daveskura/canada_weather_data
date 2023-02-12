@@ -9,6 +9,7 @@ CREATE TABLE weather.weather_station (
 	province varchar(50),
 	webid varchar(50)
 );
+
 DROP TABLE weather.station_years ;
 CREATE TABLE weather.station_years (
 	station_id varchar(25),
@@ -25,3 +26,12 @@ TRUNCATE TABLE weather.weather_station;
 TRUNCATE TABLE weather.station_years;
 TRUNCATE TABLE weather.station_months;
 
+
+DROP TABLE IF EXISTS weather.station;
+CREATE TABLE weather.station as 
+SELECT
+	station_id::int as stationid,
+	station_name,
+	province
+FROM weather.weather_station;
+;
