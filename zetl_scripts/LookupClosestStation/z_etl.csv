@@ -1,2 +1,2 @@
-etl_name,stepnum,sqlfile,steptablename,estrowcount
-LookupClosestStation,1.00,1.LookupClosestStation.sql,,-1
+stepnum,cmdfile,steptablename,estrowcount
+1.00,1.LookupClosestStation.sql,,-1
