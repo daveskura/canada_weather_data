@@ -3,6 +3,7 @@
 
 */
 
+
 SELECT count(*)
-FROM weather.station_data;
+FROM canweather.CanadianPostalCodes;
 

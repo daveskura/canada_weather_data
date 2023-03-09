@@ -4,5 +4,5 @@
 */
 
 SELECT count(*)
-FROM weather.postal_codes;
+FROM canweather.station_data;
 

@@ -1,2 +1,2 @@
 stepnum,cmdfile,steptablename,estrowcount
-1.00,1.check.sql,,-1
+10.00,10.Initial_Load.bat,,-1
