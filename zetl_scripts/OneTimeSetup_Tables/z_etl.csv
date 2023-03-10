@@ -1,0 +1,6 @@
+stepnum,cmdfile,steptablename,estrowcount
+101.00,101.canadianpostalcodes.ddl,,-1
+102.00,102.weather_station.ddl,,-1
+103.00,103.station_years.ddl,,-1
+104.00,104.station_months.ddl,,-1
+105.00,105.station_data.ddl,,-1

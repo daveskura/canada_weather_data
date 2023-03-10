@@ -1,0 +1,3 @@
+stepnum,cmdfile,steptablename,estrowcount
+105.00,105.Load_weatherdb.py,,-1
+110.00,110.check.sql,,-1

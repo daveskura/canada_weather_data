@@ -1,6 +1,0 @@
-stepnum,cmdfile,steptablename,estrowcount
-101.00,101.weather_station.ddl,,-1
-102.00,102.station_years.ddl,,-1
-103.00,103.station_months.ddl,,-1
-105.00,105.Load_weatherdb.py,,-1
-110.00,110.check.sql,,-1

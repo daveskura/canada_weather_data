@@ -1,4 +1,0 @@
-stepnum,cmdfile,steptablename,estrowcount
-100.00,100.station_data.ddl,,-1
-105.00,105.check.sql,,-1
-110.00,110.station_events.ddl,,-1
