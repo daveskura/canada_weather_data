@@ -3,8 +3,8 @@
 */
 
 CREATE OR REPLACE FUNCTION FindClosestStation(
-	mylatitude numeric(13,8),
-	mylongitude numeric(13,8),
+	mysegment integer,
+	mypostal_code varchar(15),
 	mydate date
 	)
     RETURNS integer
@@ -13,14 +13,17 @@ CREATE OR REPLACE FUNCTION FindClosestStation(
     VOLATILE PARALLEL SAFE 
 AS $BODY$
 
-SELECT stationid::integer -- ,station_name, province, latitude,longitude,distance
-FROM (
-    SELECT stationid, latitude, longitude, abs(mylatitude-latitude)+abs(mylongitude-longitude) as distance
-        ,stationname, province
-    FROM canweather.Station SC
-	WHERE mydate between start_dt and end_dt
-    ORDER BY 4
-    LIMIT 1
-) L;
+
+SELECT D.stationid::integer 
+FROM canweather.distances D
+    INNER JOIN canweather.Station S ON (D.stationid = S.stationid)
+WHERE mydate between S.start_dt and end_dt and
+    D.postalcode=mypostal_code and
+	D.segment = mysegment
+ORDER BY D.distance 
+LIMIT 1;
+
 
 $BODY$;
+
+
