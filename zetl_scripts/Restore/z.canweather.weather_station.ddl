@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS canweather.weather_station;
 CREATE TABLE IF NOT EXISTS canweather.weather_station(
 	station_id integer 		/* eg. 10700 */ ,
 	station_name text 		/* eg. (AE) BOW SUMMIT */ ,

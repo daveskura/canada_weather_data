@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS canweather.station_months;
 CREATE TABLE IF NOT EXISTS canweather.station_months(
 	station_id integer 		/* eg. 10700 */ ,
 	month integer 		/* eg. 1 */ 

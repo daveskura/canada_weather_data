@@ -23,10 +23,12 @@ for fil in dir_list:
 		
 		csv_filename = Here + '\\' + fil
 		WithTruncate = True
-		print('import table: ' + schema + '.' + tablename + ' from ' + csv_filename) # 
+		tbl = schema + '.' + tablename
+		print('import table: ' + tbl + ' from ' + csv_filename) # 
 	
 		obj = schemawiz()
-		obj.force_delimiter = '\t'
-		tbl = schema + '.' + tablename
-		ddlfilename = 'z.' + tbl + '.ddl'
-		obj.createload_postgres_from_csv(csv_filename,schema + '.' + tablename,ddlfilename)
+		if obj.dbthings.postgres_db.does_table_exist(tbl):
+			obj.justload_postgres_from_csv(csv_filename,tbl,True)
+		else:
+			ddlfilename = 'z.' + tbl + '.ddl'
+			obj.createload_postgres_from_csv(csv_filename,tbl,ddlfilename)
