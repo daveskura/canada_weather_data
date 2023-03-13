@@ -31,15 +31,15 @@ FROM (
             
                 SELECT A.postalcode,B.stationid,A.caldt,C.distance,pc_latitude,pc_longitude,stn_latitude, stn_longitude
                 FROM (  SELECT segment,postalcode,caldt,latitude as pc_latitude,longitude as pc_longitude -- 57410
-                        FROM postal_code_segments,
-                            Calendar
+                        FROM canweather.postal_code_segments,
+                            canweather.Calendar
                         WHERE segment = 1 and postalcode = 'B2G2T5' -- and caldt >  '1950-01-01' -- 
                     ) A INNER JOIN (
                         SELECT caldt, stationid,start_dt,end_dt,latitude as stn_latitude, longitude as stn_longitude -- 15,661,595
-                        FROM Station
-                            INNER JOIN Calendar ON (caldt between start_dt and end_dt)
+                        FROM canweather.Station
+                            INNER JOIN canweather.Calendar ON (caldt between start_dt and end_dt)
                     ) B ON (A.caldt = B.caldt) INNER JOIN 
-                        distances
+                        canweather.distances
                       C ON (A.segment = C.segment and A.postalcode = C.postalcode and B.stationid = C.stationid)
                 ) L
             ) M

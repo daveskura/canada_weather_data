@@ -1,3 +1,2 @@
 stepnum,cmdfile,steptablename,estrowcount
 100.00,100.distances_segment1.sql,,-1
-200.00,200.dim_postal_code.sql,,-1

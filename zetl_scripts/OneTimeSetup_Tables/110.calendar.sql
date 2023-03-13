@@ -11,7 +11,7 @@ SELECT
     ,caldt
 FROM (
     SELECT  date(CURRENT_DATE - (n || ' day')::INTERVAL) as caldt
-    FROM    generate_series(0, 57409) n
+    FROM    generate_series(0, 25638) n
       ) Cal;
 
 CREATE UNIQUE INDEX ON canweather.calendar(caldt);

@@ -17,3 +17,4 @@ FROM canweather.station_events
 GROUP BY stationid,StationName,province,Latitude,Longitude;
 
 CREATE INDEX ON canweather.Station(stationid,start_dt,end_dt);
+CREATE INDEX ON canweather.Station(province,start_dt,end_dt);

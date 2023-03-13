@@ -1,3 +1,2 @@
 stepnum,cmdfile,steptablename,estrowcount
-10.00,10.Initial_Load.bat,,-1
 200.00,200.create_segments.sql,,-1
