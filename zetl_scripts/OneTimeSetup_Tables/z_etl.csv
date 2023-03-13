@@ -1,4 +1,5 @@
 stepnum,cmdfile,steptablename,estrowcount
+99.00,99.postalcode_province.sql,,-1
 101.00,101.canadianpostalcodes.ddl,,-1
 102.00,102.weather_station.ddl,,-1
 103.00,103.station_years.ddl,,-1
