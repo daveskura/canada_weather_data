@@ -7,3 +7,4 @@ stepnum,cmdfile,steptablename,estrowcount
 105.00,105.station_data.ddl,,-1
 110.00,110.calendar.sql,,-1
 120.00,120.station_events.sql,,-1
+130.00,130.dim_postal_code.ddl,,-1
