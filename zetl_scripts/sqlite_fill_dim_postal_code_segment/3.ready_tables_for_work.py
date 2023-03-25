@@ -6,9 +6,8 @@
 from sqlitedave_package.sqlitedave import sqlite_db
 
 FROM_SEGMENT = '124'
-TO_SEGMENT = '150'
-DB_NAME = 'local_sqlite_db'
-db = sqlite_db(DB_NAME)
+TO_SEGMENT = '124'
+db = sqlite_db()
 print(db.dbstr())
 
 isql = "DELETE FROM whatarewedoing"

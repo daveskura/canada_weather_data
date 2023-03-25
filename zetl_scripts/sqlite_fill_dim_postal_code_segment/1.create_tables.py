@@ -5,8 +5,7 @@
 """
 from sqlitedave_package.sqlitedave import sqlite_db
 
-DB_NAME = 'local_sqlite_db'
-db = sqlite_db(DB_NAME)
+db = sqlite_db()
 print(db.dbstr())
 print (" create table Station,Calendar,Postal_Code_Segments ") # 
 sql = """
